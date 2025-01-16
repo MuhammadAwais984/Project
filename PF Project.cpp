@@ -18,7 +18,7 @@ struct Student {
 
 void signUp() {
     Student student;
-    ofstream outputFile("students.txt", ios::app); // Open file in append mode
+    ofstream outputFile("students.txt", ios::app);
 
     cout << "Enter Name: ";
     cin >> student.name;
@@ -142,7 +142,7 @@ void updateRecord(const string& rollNumber) {
     inputFile.close();
     tempFile.close();
 
-    // Replace old file with updated one
+    
     remove("students.txt");
     rename("temp.txt", "students.txt");
 
@@ -178,7 +178,6 @@ void removeRecord(const string& rollNumber) {
     inputFile.close();
     tempFile.close();
 
-    // Replace old file with updated one
     remove("students.txt");
     rename("temp.txt", "students.txt");
 
@@ -192,8 +191,7 @@ void removeRecord(const string& rollNumber) {
 void displayGPAReport() {
     ifstream inputFile("students.txt");
     Student student;
-    float highestGPA = 0.0, lowestGPA = 4.0; // Assuming GPA is between 0.0 and 4.0
-    int totalStudents = 0;
+    float highestGPA = 0.0, lowestGPA = 4.0; 
     float totalGPA = 0.0;
 
     if (!inputFile.is_open()) {
@@ -242,28 +240,28 @@ int main() {
 
         switch (choice) {
             case 1:
-                signUp(); // Add new student record
+                signUp(); 
                 break;
             case 2:
-                displayAllRecords(); // Display all student records
+                displayAllRecords(); 
                 break;
             case 3:
                 cout << "Enter Roll Number to search: ";
                 cin >> rollNumber;
-                searchStudent(rollNumber); // Search for a student
+                searchStudent(rollNumber);
                 break;
             case 4:
                 cout << "Enter Roll Number to update: ";
                 cin >> rollNumber;
-                updateRecord(rollNumber); // Update student record
+                updateRecord(rollNumber); 
                 break;
             case 5:
                 cout << "Enter Roll Number to remove: ";
                 cin >> rollNumber;
-                removeRecord(rollNumber); // Remove student record
+                removeRecord(rollNumber); 
                 break;
             case 6:
-                displayGPAReport(); // Display GPA report
+                displayGPAReport(); 
                 break;
             case 7:
                 cout << "Exiting..." << endl;
@@ -273,5 +271,5 @@ int main() {
         }
     } while (choice != 7);
 
-    return 0; // Successful execution
-}
+    return 0; 
+ }
